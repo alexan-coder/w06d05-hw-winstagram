@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/resources'
+
   devise_for :users
+
+  resources :users do 
+    resources :entries
+  end
+
   root 'entries#index'
   # get 'entries'
 

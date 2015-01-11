@@ -1,0 +1,18 @@
+<header>
+	<nav>
+		<a href="/">WDInstagram</a>
+		<!-- buttons change if logged in -->
+		<%if user_signed_in? %>
+			<li><%= link_to "My entries", "#"  %></li>
+
+		<%= form_tag(destroy_user_session_path, method: "delete") do %>
+				<%= submit_tag "Logout" %>
+			<% end %>
+
+
+		<% else %>
+			<li><%= link_to "Sign in", new_user_session_path  %></li>
+			<li><%= link_to "Create an account", new_user_registration_path  %></li>
+		<% end %>
+	</nav>
+</header>
